@@ -2,7 +2,7 @@
 
 include 'includes/geoip/geoipi.inc';
 
-echo "is shbat";
+echo 'is shbat';
 
 $timeup  =  microtime( true );
 
@@ -15,10 +15,10 @@ var_dump( jdtojewish( unixtojd( mktime(0,0,0,4,5,2012) ) ) );
 
 var_dump( ( 1 & 1 ) ? true : false );
 
-var_dump( date("c") );
-var_dump( date("c",date_sunset( time() , SUNFUNCS_RET_TIMESTAMP , 31.7800459 , 35.2186025 , 90.846567 , 0 )) );
+var_dump( date('c') );
+var_dump( date('c',date_sunset( time() , SUNFUNCS_RET_TIMESTAMP , 31.7800459 , 35.2186025 , 90.846567 , 0 )) );
 
-echo "<br/>done";
+echo '<br />done';
 
 
 /////////////////////////////////
@@ -100,52 +100,50 @@ function check_shbat( $ip ){
 
 function check_holiday( $jew_time ){
 	
-	$d = explode( "/", $jew_time );  
+	$d = explode( '/', $jew_time );  
 	if( count( $d ) < 3 )return -1;
 	
 	$month = $d[0];
 	$day   = $d[1];
 	
-		switch( $month )
-		{
-			case 1:
-				switch( $day ){
-					case 1:
-					case 2:
-					case 10:
-					case 15:
-					case 22:
-						return 1;
-					case 16:
-					case 23:
-						return 2;
-					default:
-						return 0;
-				}
-			case 8:
-				switch( $day ){
-					case 15:
-					case 21:
-						return 1;
-					case 16:
-					case 22:
-						return 2;
-					default:
-						return 0;
-				}
-			case 10:
-				switch( $day ){
-					case 6:
-						return 1;
-					case 7:
-						return 2;
-					default:
-						return 0;
-				}
-			default:
-				return 0;
-		}
-	
-		return -1;
-	
+	switch( $month )
+	{
+		case 1:
+			switch( $day ){
+				case 1:
+				case 2:
+				case 10:
+				case 15:
+				case 22:
+					return 1;
+				case 16:
+				case 23:
+					return 2;
+				default:
+					return 0;
+			}
+		case 8:
+			switch( $day ){
+				case 15:
+				case 21:
+					return 1;
+				case 16:
+				case 22:
+					return 2;
+				default:
+					return 0;
+			}
+		case 10:
+			switch( $day ){
+				case 6:
+					return 1;
+				case 7:
+					return 2;
+				default:
+					return 0;
+			}
+		default:
+			return 0;
+	}
+	return -1;
 }
