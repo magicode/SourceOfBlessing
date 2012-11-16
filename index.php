@@ -6,7 +6,7 @@ echo 'is shbat';
 
 $timeup  =  microtime( true );
 
-var_dump( check_shbat( "95.86.76.181" ) );
+//var_dump( check_shbat( "95.86.76.181" ) );
 
 echo microtime( true ) - $timeup;
 
